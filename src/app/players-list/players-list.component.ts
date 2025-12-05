@@ -1,5 +1,5 @@
 import { Component, inject, signal, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule, Router } from '@angular/router';
 import { PlayerService } from '../players.service';
 import { QuestsService } from '../quests/quests.service';
@@ -10,7 +10,7 @@ import { Player } from '../models/player.model';
 @Component({
   selector: 'app-players-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, Search],
+  imports: [RouterModule, Search],
   templateUrl: './players-list.component.html',
   styleUrls: ['./players-list.component.css']
 })

@@ -1,5 +1,5 @@
 import { Component, computed, inject, WritableSignal, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PlayerService } from '../players.service';
 import { QuestsService } from '../quests/quests.service';
@@ -11,7 +11,7 @@ import { Quest } from '../models/player.model';
 @Component({
   selector: 'app-player-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   templateUrl: './player-detail.component.html',
   styleUrls: ['./player-detail.component.css']
 })

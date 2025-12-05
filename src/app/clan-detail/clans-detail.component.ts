@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ClansService } from '../clans.service';
 import { PlayerService } from '../players.service';
@@ -7,7 +7,7 @@ import { PlayerService } from '../players.service';
 @Component({
   selector: 'app-clan-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   templateUrl: './clans-detail.component.html',
   styleUrls: ['./clans-detail.component.css'],
 })

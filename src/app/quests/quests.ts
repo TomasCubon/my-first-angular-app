@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { QuestsService } from './quests.service';
@@ -9,7 +9,7 @@ import { QuestItem } from '../quest-item/quest-item';
 @Component({
   selector: 'app-quests',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, QuestItem],
+  imports: [FormsModule, RouterModule, QuestItem],
   templateUrl: './quests.html',
   styleUrls: ['./quests.css']
 })
