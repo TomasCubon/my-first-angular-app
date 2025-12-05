@@ -1,0 +1,10 @@
+<h3>{{ title }}</h3>
+
+<ul>
+  @for (questId of quests; track questId) {
+    <li>
+      Quest ID: {{ questId }}
+      <button (click)="toggleQuest(questId)">↔️ Presunúť</button>
+    </li>
+  }
+</ul>

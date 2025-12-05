@@ -1,0 +1,19 @@
+<article class="quest" (click)="open.emit(quest().id)">
+  <h3> {{ quest().title }}</h3>
+  <p>{{ quest().description }}</p>
+  <p>XP: {{ quest().xp }}</p>
+
+  @if (quest().xp > 100) {
+    <strong>🔥 MEGA XP!</strong>
+  } @else if (quest().xp > 50) {
+    <strong>⭐ SUPER XP!</strong>
+  }
+
+  
+  <div
+    class="delete"
+    (click)="$event.stopPropagation(); deleteQuest.emit(quest().id)"
+  >
+    🗑️
+  </div>
+</article>

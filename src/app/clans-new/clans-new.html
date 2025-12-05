@@ -1,0 +1,18 @@
+<main>
+    <h2>Create New Clan</h2>
+    <form (ngSubmit)="onSubmit(clanForm)" #clanForm="ngForm">
+        <div>
+        <label for="name">Clan Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="clanName" required>
+        </div>
+        <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="clanDescription" required></textarea>
+        </div>
+        <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" [(ngModel)]="clanCapacity" required min="1">
+        </div>
+        <button type="submit" [disabled]="clanForm.invalid">Create Clan</button>
+    </form>
+</main>

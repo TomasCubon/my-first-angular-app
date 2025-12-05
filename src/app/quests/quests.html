@@ -1,0 +1,61 @@
+<p>Počet questov: {{ questsSig().length }}</p>
+
+<form (ngSubmit)="onAdd(f)" #f="ngForm" style="margin-bottom:1rem; display:flex; gap:8px; flex-wrap:wrap">
+
+
+  <div style="display:flex; flex-direction:column">
+    <input type="text" name="title" ngModel placeholder="Názov questu" required minlength="8">
+
+
+    @if (f.controls['title']?.valid && f.controls['title']?.touched) {
+    <small style="color:#10b981">
+      Názov je platný.
+    </small>
+    }
+  </div>
+
+
+  <div style="display:flex; flex-direction:column">
+    <input type="text" name="description" ngModel placeholder="Popis" required>
+
+    @if (f.controls['description']?.invalid && f.controls['description']?.touched) {
+    <small style="color:#ef4444">
+      Popis je povinný.
+    </small>
+    }
+  </div>
+
+
+  <div style="display:flex; flex-direction:column">
+    <input type="number" name="xp" ngModel placeholder="XP" required min="1">
+
+    @if (f.controls['xp']?.invalid && f.controls['xp']?.touched) {
+    <small style="color:#ef4444">
+      XP musí byť kladné číslo.
+    </small>
+    }
+
+    @if (f.controls['xp']?.valid && f.controls['xp']?.touched) {
+    <small style="color:#10b981">
+      XP je platné.
+    </small>
+    }
+  </div>
+
+  
+  <button type="submit" [disabled]="f.invalid">
+    Pridať quest
+  </button>
+</form>
+
+<hr>
+
+<section class="quests">
+  @for (quest of questsSig(); track quest.id; let i = $index) {
+  <app-quest-item [quest]="quest" (deleteQuest)="deleteQuest($event)" [routerLink]="[quest.id]">
+  </app-quest-item>
+  <hr>
+  } @empty {
+  <p>Momentálne nie sú dostupné žiadne questy.</p>
+  }
+</section>

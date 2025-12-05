@@ -1,0 +1,110 @@
+.clans-page {
+  padding: 1.5rem;
+}
+
+.clans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.clans-header h1 {
+  margin: 0;
+}
+
+.clans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.clan-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+
+  background: #2a0f0f;
+  border: 1px solid #3b1e1e;
+
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.clan-card:hover {
+  border-color: #f83838;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.35);
+}
+
+.clan-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  border: 2px solid #f83838;
+  background: #3b1e1e;
+  object-fit: cover;
+}
+
+.clan-avatar.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #f83838;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #f70808;
+}
+
+.info p {
+  margin: 0.1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: #df0c0c;
+}
+
+.clan-card button {
+  margin-left: auto;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.clan-card button:hover {
+  opacity: 0.85;
+}
+
+.add-btn {
+  background: #f83838;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 15px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.add-btn:hover {
+  background: #e90e0e;
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: scale(0.96);
+}

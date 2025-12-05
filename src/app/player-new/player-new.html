@@ -1,0 +1,10 @@
+<main>
+    <h2>Create New Player</h2>
+    <form (ngSubmit)="onSubmit(clanForm)" #clanForm="ngForm">
+        <div>
+        <label for="name">Player Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="nickname" required>
+        </div>
+        <button type="submit" [disabled]="clanForm.invalid">Create Player</button>
+    </form>
+</main>

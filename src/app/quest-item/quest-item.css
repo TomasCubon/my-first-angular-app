@@ -1,0 +1,57 @@
+.quests {
+  padding: 20px;
+}
+
+.quest {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+form input,
+form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+form button {
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}

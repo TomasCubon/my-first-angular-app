@@ -1,0 +1,112 @@
+<section class="player-detail">
+  @if (player()) {
+    <header class="player-header">
+      <a routerLink="/players" class="back-link">← Späť na Players</a>
+      <h1>{{ player()!.nickname }}</h1>
+    </header>
+
+    <div class="player-main">
+      @if (player()!.avatarUrl) {
+        <img
+          [src]="player()!.avatarUrl"
+          alt="Avatar"
+          class="avatar-big"
+        />
+      }
+
+      <div class="info">
+        <p><strong>Level:</strong> {{ playerLevel }}</p>
+        <p>Next Level in: {{playerNextLevelXp}}</p>
+
+        @if (player()!.clanId) {
+          <p>
+            <strong>Clan:</strong>
+            <a [routerLink]="['/clans', player()!.clanId]">
+              {{ player()!.clanId }}
+            </a>
+          </p>
+        } @else {
+          <p><strong>Clan:</strong> žiadny</p>
+        }
+      </div>
+    </div>
+
+    
+    <section class="quests-section">
+      <h2>Quests hráča</h2>
+
+      @if (playerQuests().length > 0) {
+        <ul class="quest-list">
+          <h3>In progress</h3>
+          @for (quest of inProgressQuestsSig(); track quest.id) {
+            <li class="quest-row">
+              <a [routerLink]="['/quests', quest.id]">
+                {{ quest.title }}
+              </a>
+              @if (quest.completed) {
+                <span class="status completed" (click)="completedQuests(quest.id)">[Dokončené]</span>
+              } @else {
+                <span class="status pending" (click)="completedQuests(quest.id)">[Nedokončené]</span>
+              }
+
+              
+              <button class="remove-btn" (click)="removeQuest(quest.id)">
+                Odobrať
+              </button>
+            </li>
+          }
+        </ul>
+        <ul class="quest-list">
+          <h3>completed</h3>
+          @for (quest of completedQuestsSig(); track quest.id) {
+            <li class="quest-row">
+              <a [routerLink]="['/quests', quest.id]">
+                {{ quest.title }}
+              </a>
+              @if (quest.completed) {
+                <span class="status completed">[Dokončené]</span>
+              } @else {
+                <span class="status pending">[Nedokončené]</span>
+              }
+
+              
+              <button class="remove-btn" (click)="removeQuest(quest.id)">
+                Odobrať
+              </button>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p>Tento hráč zatiaľ nemá žiadne questy.</p>
+      }
+    </section>
+
+
+    
+    <section class="quests-section">
+      <h2>Priradiť quest hráčovi</h2>
+
+      @if (availableQuests().length > 0) {
+        <ul class="quest-list">
+          @for (quest of availableQuests(); track quest.id) {
+            <li class="quest-row">
+              <span>{{ quest.title }}</span>
+
+              
+              <button class="add-btn" (click)="addQuest(quest.id)">
+                Pridať
+              </button>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p>Všetky questy má hráč už priradené.</p>
+      }
+    </section>
+
+
+  } @else {
+    <p>Hráč neexistuje.</p>
+    <a routerLink="/players">← Späť na Players</a>
+  }
+</section>

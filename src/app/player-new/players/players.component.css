@@ -1,0 +1,100 @@
+.players-container {
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  margin-left: auto;
+}
+.list-container,
+.detail-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.12);
+}
+
+.list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f6ff;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.list-container li:hover {
+  background: #e6e9ff;
+}
+
+.list-container img {
+  border-radius: 8px;
+  margin-right: 12px;
+}
+button {
+  padding: 8px 16px;
+  background: #4e7cff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #3d64d8;
+}
+
+button.delete {
+  background: #e04b4b;
+}
+
+button.delete:hover {
+  background: #c63c3c;
+}
+
+.add-btn {
+  margin-bottom: 15px;
+}
+select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-right: 10px;
+}
+
+.add-player-area {
+  margin-top: 20px;
+  background: #f6f7ff;
+  padding: 12px;
+  border-radius: 10px;
+}

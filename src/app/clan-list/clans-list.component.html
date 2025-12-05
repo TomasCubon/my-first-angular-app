@@ -1,0 +1,32 @@
+<section class="clans-page">
+  <header class="clans-header">
+    <h1>Clans</h1>
+    <button class="add-btn" [routerLink]="['new']">+ Add Clan</button>
+  </header>
+
+  @if (clans().length > 0) {
+    <div class="clans-list">
+      @for (clan of clans(); track clan.id) {
+        <article class="clan-card" (click)="openClan(clan.id)">
+          @if (clan.avatarUrl) {
+            <img [src]="clan.avatarUrl" alt="Clan logo" class="clan-avatar" />
+          }
+
+          <div class="info">
+            <h2>{{ clan.name }}</h2>
+            <p>{{ clan.description }}</p>
+            <p>
+              Members: {{ membersCount(clan.id) }}/{{ clan.capacity }}
+            </p>
+          </div>
+
+          <button (click)="deleteClan(clan.id, $event)">
+            Delete
+          </button>
+        </article>
+      }
+    </div>
+  } @else {
+    <p>Žiadne clany. Skús pridať nový cez „Add Clan“.</p>
+  }
+</section>

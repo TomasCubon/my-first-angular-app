@@ -1,0 +1,62 @@
+<section class="players-page">
+  <header class="players-header">
+    <h1>Players</h1>
+    <app-search (searchChanged)="onSearchChanged($event)"></app-search>
+    <button class="btn-primary" routerLink="new">
+      + Add Player
+    </button>
+  </header>
+
+  <div class="players-list" *ngIf="players().length; else emptyState">
+    <article
+      class="player-card"
+      *ngFor="let player of players()"
+      (click)="goToDetail(player.id)"
+    >
+      <img
+        *ngIf="player.avatarUrl"
+        [src]="player.avatarUrl"
+        alt="Avatar"
+        class="avatar"
+      />
+
+      <div class="player-info">
+        <h2>{{ player.nickname }}</h2>
+        <p>
+          Level: {{ getPlayerLevel(getPlayerCompletedQuestsXp(player)).level }} ({{ getPlayerLevel(getPlayerCompletedQuestsXp(player)).title }})<br>
+          XP: {{ getPlayerCompletedQuestsXp(player) }}
+        </p>
+        <div style="width:100%;background:#eee;border-radius:4px;height:12px;overflow:hidden;margin-bottom:4px">
+          <div [style.width.%]="getLevelProgress(getPlayerCompletedQuestsXp(player)) * 100" style="background:#10b981;height:100%"></div>
+        </div>
+        <p *ngIf="getXpToNextLevel(getPlayerCompletedQuestsXp(player)).nextLevel">
+          Do ďalšieho levelu ({{ getXpToNextLevel(getPlayerCompletedQuestsXp(player)).nextLevel?.title }}):
+          {{ getXpToNextLevel(getPlayerCompletedQuestsXp(player)).xpToNext }} XP
+        </p>
+        <p *ngIf="!getXpToNextLevel(getPlayerCompletedQuestsXp(player)).nextLevel">
+          Maximálny level dosiahnutý!
+        </p>
+        <p *ngIf="player.clanId; else noClan">
+          Clan: <a [routerLink]="['/clans', player.clanId]" (click)="$event.stopPropagation()">
+            {{ player.clanId }}
+          </a>
+        </p>
+        <ng-template #noClan>
+          <p>Clan: žiadny</p>
+        </ng-template>
+        <p>Počet questov: {{ player.questIds.length }}</p>
+      </div>
+
+      <button
+        class="btn-danger"
+        (click)="removePlayer(player.id, $event)"
+      >
+        Delete
+      </button>
+    </article>
+  </div>
+
+  <ng-template #emptyState>
+    <p>Žiadni hráči. Skús pridať prvého cez „Add Player“.</p>
+  </ng-template>
+</section>

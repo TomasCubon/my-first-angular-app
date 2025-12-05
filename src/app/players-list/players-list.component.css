@@ -1,0 +1,86 @@
+.players-page {
+  padding: 1.5rem;
+}
+
+.players-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #2a0f0f;
+  border: 1px solid #3b1e1e;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(42, 15, 15, 0.6);
+  border-color: #f83838;
+}
+
+.player-info h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #f70808;
+}
+
+.player-info p {
+  margin: 0.1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: #df0c0c;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 2px solid #f83838;
+  flex-shrink: 0;
+}
+
+.btn-primary,
+.btn-danger {
+  border: none;
+  outline: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: #f83838;
+  color: #2a0f0f;
+  font-weight: 600;
+   border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 15px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}

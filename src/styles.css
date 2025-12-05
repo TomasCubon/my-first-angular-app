@@ -1,1 +1,101 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: linear-gradient(135deg, #0f0c29, #631d1d, #3e2424);
+  background-attachment: fixed;
+  color: #ff0202;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  color: #000000;
+  background: linear-gradient(135deg, #ff3a3a, #d82626);
+  box-shadow: 0 0 10px #00000080;
+  transition: 0.15s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff5353, #ff3a3a);
+  box-shadow: 0 0 14px #000000cc;
+}
+
+button.delete {
+  background: linear-gradient(135deg, #ff3e3e, #c92e2e);
+  box-shadow: 0 0 12px #ff3e3e80;
+}
+
+button.delete:hover {
+  background: linear-gradient(135deg, #ff6868, #ff3e3e);
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.2s;
+}
+
+.list-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 12px;
+
+  box-shadow: 0 0 10px rgba(0,255,255,0.4);
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+h2, h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #000000;
+
+  text-shadow: 0 0 6px rgba(0,150,255,0.6);
+}
+.detail-text {
+  padding: 8px 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.detail-list {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+}
+select {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  color: #000000;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+}
+
+select option {
+  color: #000;
+}
+

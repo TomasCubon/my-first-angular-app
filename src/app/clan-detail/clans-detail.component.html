@@ -1,0 +1,70 @@
+<section class="clan-detail">
+  @if (clan()) {
+    <header class="clan-header">
+      <a routerLink="/clans">← Späť na Clans</a>
+      <h1>{{ clan()!.name }}</h1>
+    </header>
+
+    <div class="clan-main">
+      @if (clan()!.avatarUrl) {
+        <img
+          [src]="clan()!.avatarUrl"
+          alt="Clan logo"
+          class="clan-logo"
+        />
+      }
+      <div>
+        <p>{{ clan()!.description }}</p>
+        <p>
+          Kapacita: {{ members().length }}/{{ clan()!.capacity }}
+        </p>
+      </div>
+    </div>
+
+   
+    <section class="clan-members">
+      <h2>Členovia</h2>
+
+      @if (members().length > 0) {
+        <ul>
+          @for (player of members(); track player.id) {
+            <li>
+              <a [routerLink]="['/players', player.id]">
+                {{ player.nickname }} (lvl {{ player.xp }})
+              </a>
+              <button (click)="removePlayerFromClan(player.id)">
+                Odobrať z clanu
+              </button>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p>Clan nemá žiadnych členov.</p>
+      }
+    </section>
+
+    
+    <section class="clan-add-players">
+      <h2>Pridať hráča do clanu</h2>
+
+      @if (availablePlayers().length > 0) {
+        <ul>
+          @for (player of availablePlayers(); track player.id) {
+            <li>
+              {{ player.nickname }} (lvl {{ player.xp }})
+              <button (click)="addPlayerToClan(player.id)">
+                Pridať do clanu
+              </button>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p>Žiadni voľní hráči bez clanu.</p>
+      }
+    </section>
+
+  } @else {
+    <p>Clan neexistuje.</p>
+    <a routerLink="/clans">← Späť na Clans</a>
+  }
+</section>
