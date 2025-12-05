@@ -27,7 +27,6 @@ export const routes: Routes = [
     title: 'Quest detail',
   },
 
-  // ✅ tu sú nové routy
   {
     path: 'players',
     component: PlayersListComponent,
